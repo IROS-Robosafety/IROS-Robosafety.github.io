@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafeWBM: Multimodal Plug-in Early-Warning Safety Monitoring for Indoor Humanoid Whole-Body Motion</title>
+    <title>RoboSafety: Multimodal Plug-in Safety Monitoring for Indoor Humanoid Whole-Body Motion</title>
     <style>
         /* 全局样式 - 模仿学术网页的简洁风格 */
         body {
@@ -134,7 +134,7 @@
 
     <!-- 1. 题目 (Title) -->
     <div class="header-section">
-        <h1 class="project-title">SafeWBM: Multimodal Plug-in Early-Warning Safety Monitoring for Indoor Humanoid Whole-Body Motion</h1>
+        <h1 class="project-title">RoboSafety: Multimodal Plug-in Safety Monitoring for Indoor Humanoid Whole-Body Motion</h1>
         <div class="authors">
             Anonymous Authors
         </div>
@@ -146,10 +146,10 @@
         <div class="highlights-box">
             <h3>Highlights</h3>
             <ul class="highlights-list">
-                <li><strong>Core Contribution 1: RoboSafety Dataset.</strong> Constructed the first large-scale multimodal safety benchmark for humanoid whole-body navigation, featuring 98 diverse indoor environments with synchronized visual-proprioceptive data and fine-grained annotations of collision and fall risks.</li>
-                <li><strong>Core Contribution 2: Geometry-Dynamics Interaction Mechanism.</strong> Proposed SafeWBM, a model-agnostic safety monitor that employs a cross-modal attention mechanism to ground visual geometric constraints into proprioceptive dynamic states, effectively bridging the gap between semantic understanding and physical stability.</li>
+                <li><strong>Core Contribution 1: Robosafetydata Dataset.</strong> Constructed the first large-scale multimodal safety benchmark for humanoid whole-body navigation, featuring 98 diverse indoor environments with synchronized visual-proprioceptive data and fine-grained annotations of collision and fall risks.</li>
+                <li><strong>Core Contribution 2: Geometry-Dynamics Interaction Mechanism.</strong> Proposed RoboSafety, a model-agnostic safety monitor that employs a cross-modal attention mechanism to ground visual geometric constraints into proprioceptive dynamic states, effectively bridging the gap between semantic understanding and physical stability.</li>
                 <li><strong>Core Contribution 3: Plug-and-Play Safe Navigation.</strong> Demonstrated a lightweight, modular safety layer that integrates seamlessly with existing Vision-Language Navigation (VLN) policies, enabling proactive risk mitigation and smooth collision avoidance without requiring policy retraining.</li>
-                <li><strong>Performance Improvement:</strong> Compared to state-of-the-art unimodal baselines, SafeWBM achieves a +15% improvement in F1-score for dynamic risk detection and extends the average pre-event warning time up to 1.70 seconds, significantly enhancing safety margins in unseen environments.</li>
+                <li><strong>Performance Improvement:</strong> Compared to state-of-the-art unimodal baselines, RoboSafety achieves a +15% improvement in F1-score for dynamic risk detection and extends the average pre-event warning time up to 1.70 seconds, significantly enhancing safety margins in unseen environments.</li>
             </ul>
         </div>
     </div>
@@ -164,7 +164,7 @@
                 Your browser does not support the video tag.
             </video>
             <p style="color: #666; font-size: 0.9rem; text-align: justify; margin-top: 10px;">
-                <strong>Demo:</strong> This video demonstrates the real-time performance of SafeWBM. By fusing egocentric vision with proprioceptive data, our model successfully predicts potential collision and fall risks 1.70 seconds in advance, allowing the humanoid robot to smoothly decelerate and adjust its path, whereas baselines often fail or trigger abrupt emergency stops.
+                <strong>Demo:</strong> This video demonstrates the real-time performance of RoboSafety. By fusing egocentric vision with proprioceptive data, our model successfully predicts potential collision and fall risks 1.70 seconds in advance, allowing the humanoid robot to smoothly decelerate and adjust its path, whereas baselines often fail or trigger abrupt emergency stops.
             </p>
         </div>
     </div>
@@ -173,7 +173,7 @@
     <div class="section">
         <h2 class="section-title">Abstract</h2>
         <p class="abstract-text">
-            Deploying humanoid robots in cluttered indoor environments requires rigorous whole-body safety assurance. Existing Vision-and-Language Navigation (VLN) policies often lack explicit risk awareness, while general Vision-Language Models (VLMs) fail to capture high-frequency dynamic hazards. Conversely, reactive controllers like Control Barrier Functions (CBFs) suffer from myopia, causing disruptive emergency stops. To bridge this gap, we introduce RoboSafety, a dataset with 14k multimodal trajectories annotated for collision and fall risks. We propose SafeWBM, a lightweight plug-in safety monitor that fuses visual geometry with proprioceptive dynamics. Unlike naive fusion, our geometry-dynamics attention mechanism selectively grounds visual semantics into physical constraints. Experiments show that SafeWBM outperforms general VLMs (mF1 $\approx$ 0.5) and single-modality baselines. Specifically, it improves detection in seen scenes by +0.15 F1 over vision-only methods by capturing dynamic instability, while maintaining robustness in unseen scenes where proprioception-only methods fail. System-level integration extends the warning time up to 1.70 seconds, enabling smooth recovery behaviors.
+            Deploying humanoid robots in cluttered indoor environments requires rigorous whole-body safety assurance. Existing Vision-and-Language Navigation (VLN) policies often lack explicit risk awareness, while general Vision-Language Models (VLMs) fail to capture high-frequency dynamic hazards. Conversely, reactive controllers like Control Barrier Functions (CBFs) suffer from myopia, causing disruptive emergency stops. To bridge this gap, we introduce Robosafetydata, a dataset with 14k multimodal trajectories annotated for collision and fall risks. We propose RoboSafety, a lightweight plug-in safety monitor that fuses visual geometry with proprioceptive dynamics. Unlike naive fusion, our geometry-dynamics attention mechanism selectively grounds visual semantics into physical constraints. Experiments show that RoboSafety outperforms general VLMs (mF1 $\approx$ 0.5) and single-modality baselines. Specifically, it improves detection in seen scenes by +0.15 F1 over vision-only methods by capturing dynamic instability, while maintaining robustness in unseen scenes where proprioception-only methods fail. System-level integration extends the warning time up to 1.70 seconds, enabling smooth recovery behaviors.
         </p>
     </div>
 
@@ -182,19 +182,19 @@
         <h2 class="section-title">Method Overview</h2>
         <img src="method_overview.png" alt="Method Overview" class="method-image">
         <p style="margin-top: 15px; text-align: justify;">
-            <strong>Architecture of the proposed SafeWBM：</strong> The visual branch processes a window of egocentric images with a frozen V-JEPA2 encoder. The proprioceptive branch encodes joint and IMU measurements, together with lightweight risk scores, through sensor-specific projectors. A geometry--dynamics interaction compressor performs cross-attention between proprioceptive queries and visual memories and aggregates temporal information. An attention-based pooling layer and a feed-forward prediction head output a safety score that is fed back as a read-only safety signal to the navigation and control stack.
+            <strong>Architecture of the proposed RoboSafety：</strong> The visual branch processes a window of egocentric images with a frozen V-JEPA2 encoder. The proprioceptive branch encodes joint and IMU measurements, together with lightweight risk scores, through sensor-specific projectors. A geometry--dynamics interaction compressor performs cross-attention between proprioceptive queries and visual memories and aggregates temporal information. An attention-based pooling layer and a feed-forward prediction head output a safety score that is fed back as a read-only safety signal to the navigation and control stack.
         </p>
     </div>
 
     <!-- 6. Dataset 介绍 -->
     <div class="section">
-        <h2 class="section-title">RoboSafety Dataset</h2>
+        <h2 class="section-title">Robosafetydata Dataset</h2>
         <p class="abstract-text">
-            We introduce <strong>RoboSafety</strong>, a large-scale multimodal dataset containing 14k trajectories with rich safety labels, collected across diverse indoor environments.
+            We introduce <strong>Robosafetydata</strong>, a large-scale multimodal dataset containing 14k trajectories with rich safety labels, collected across diverse indoor environments.
         </p>
         <img src="dataset_overview.png" alt="Dataset Overview" class="method-image">
         <p style="margin-top: 15px; text-align: justify;">
-            <strong>Dataset Overview:</strong> (a) The humanoid robot platform and onboard sensors, including camera, IMU, and joint encoders, provide synchronized visual and proprioceptive data streams. (b) Multimodal sequences record synchronized visual observations and proprioceptive dynamics signals from onboard sensors, with collisions and external perturbations annotated along the trajectory. (c) Indoor navigation scenarios and definitions of motion risks in the RoboSafety dataset. (d) Example safe, collision, and fall trajectories that provide supervision for safety prediction.
+            <strong>Dataset Overview:</strong> (a) The humanoid robot platform and onboard sensors, including camera, IMU, and joint encoders, provide synchronized visual and proprioceptive data streams. (b) Multimodal sequences record synchronized visual observations and proprioceptive dynamics signals from onboard sensors, with collisions and external perturbations annotated along the trajectory. (c) Indoor navigation scenarios and definitions of motion risks in the Robosafetydata dataset. (d) Example safe, collision, and fall trajectories that provide supervision for safety prediction.
         </p>
     </div>
 
@@ -202,7 +202,7 @@
     <div class="section">
         <h2 class="section-title">Qualitative Comparison</h2>
         <p class="abstract-text">
-            To demonstrate the generalizability of our method, we integrated SafeWBM as a plug-in module with three state-of-the-art VLN policies: NaVILA, NaVid, and Uni-NaVid. The following videos show that in diverse unseen indoor scenarios, SafeWBM consistently provides accurate early warnings and enhances safety execution without requiring any fine-tuning of the host policies.
+            To demonstrate the generalizability of our method, we integrated RoboSafety as a plug-in module with three state-of-the-art VLN policies: NaVILA, NaVid, and Uni-NaVid. The following videos show that in diverse unseen indoor scenarios, RoboSafety consistently provides accurate early warnings and enhances safety execution without requiring any fine-tuning of the host policies.
         </p>
         
         <div class="comparison-grid">
